@@ -4,7 +4,6 @@ import java.util.Scanner;
 public class PlantManager {
 	Plant plant;
 	Scanner input;
-	//String[] list = {"", "", "", ""};
 	ArrayList<String> list = new ArrayList<String>();//후에 식물들을 저장할 리스트...
 	ArrayList<String> values = new ArrayList<String>();//한식물의 정보를 묶어서 새 리스트...
 	PlantManager(Scanner input){
