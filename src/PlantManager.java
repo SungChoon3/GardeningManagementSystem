@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 import plant.CuttingsPlant;
 import plant.Plant;
+import plant.PlantKind;
 import plant.Seed;
 
 public class PlantManager {
@@ -22,25 +23,25 @@ public class PlantManager {
 			System.out.print("Select Plant Kind Number between 1-3 : ");
 			kind = input.nextInt();
 			if(kind == 1) { 
-				plant = new Plant();
+				plant = new Plant(PlantKind.Seedling);
 				plant.getUserInfo(input);
 				plants.add(plant);
 				break;
 			}
 			else if(kind == 2){
-				plant = new CuttingsPlant();
+				plant = new CuttingsPlant(PlantKind.Cuttings);
 				plant.getUserInfo(input);
 				plants.add(plant);
 				break;
 			}
 			else if(kind == 3) {
-				plant = new Seed();
+				plant = new Seed(PlantKind.Seed);
 				plant.getUserInfo(input);
 				plants.add(plant);
 				break;
 			}
 			else {
-				System.out.print("Select Plant Kind Number between 1-2 : ");
+				System.out.print("Select Plant Kind Number between 1-3 : ");
 			}	
 		}
 	}

@@ -11,11 +11,15 @@ public class Plant {	//fields - 보안을 위해 protected로 변경
 	public Plant() {//기본 생성자
 		
 	}
+	public Plant(PlantKind kind) {
+		this.kind = kind;
+	}
 	public Plant(String name, int id) {
 		this.name = name;
 		this.id = id;
 	}
-	public Plant(String name, int id, String type, String light) {
+	public Plant(PlantKind kind, String name, int id, String type, String light) {
+		this.kind = kind;
 		this.name = name;
 		this.id = id;
 		this.type = type;
@@ -53,7 +57,21 @@ public class Plant {	//fields - 보안을 위해 protected로 변경
 		this.light = light;
 	}
 	public void printInfo() {
-		System.out.println("name: "+ name + " id: " + id 
+		String pkind = "none";
+		switch(this.kind) {
+		case Seedling : 
+			pkind = "Seedling";
+			break;
+		case Cuttings : 
+			pkind = "Cuttings";
+			break;
+		case Seed : 
+			pkind = "Seed";
+			break;
+		default : 
+			
+		}
+		System.out.println("kind: " + pkind + " name: "+ name + " id: " + id 
 				+ " type: " + type + " light: " + light);
 	}
 	public void getUserInfo(Scanner input) {

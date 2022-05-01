@@ -3,6 +3,9 @@ package plant;
 import java.util.Scanner;
 
 public class CuttingsPlant extends Plant {
+	public CuttingsPlant(PlantKind kind) {
+		super(kind);
+	}
 	public void getUserInfo(Scanner input) {
 		System.out.print("Plant ID :");
 		int id = input.nextInt();
