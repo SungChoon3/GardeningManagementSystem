@@ -3,11 +3,13 @@ import java.util.Scanner;
 
 import plant.CuttingsPlant;
 import plant.Plant;
+import plant.PlantInput;
 import plant.PlantKind;
 import plant.Seed;
+import plant.Seedling;
 
 public class PlantManager {
-	ArrayList<Plant> plants = new ArrayList<Plant>();
+	ArrayList<PlantInput> plants = new ArrayList<PlantInput>();
 	Scanner input;
 	PlantManager(Scanner input){//생성자
 		this.input = input;
@@ -15,7 +17,7 @@ public class PlantManager {
 	public void addPlant() {//1번 메뉴 함수
 		System.out.println("#Add Plant#"); //식물 추가 메뉴
 		int kind = 0;
-		Plant plant;
+		PlantInput plantInput;
 		while(kind != 1 && kind != 2 && kind != 3) {
 			System.out.println("1 for Seedling");
 			System.out.println("2 for Cuttings");
@@ -23,21 +25,21 @@ public class PlantManager {
 			System.out.print("Select Plant Kind Number between 1-3 : ");
 			kind = input.nextInt();
 			if(kind == 1) { 
-				plant = new Plant(PlantKind.Seedling);
-				plant.getUserInfo(input);
-				plants.add(plant);
+				plantInput = new Seedling(PlantKind.Seedling);
+				plantInput.getUserInfo(input);
+				plants.add(plantInput);
 				break;
 			}
 			else if(kind == 2){
-				plant = new CuttingsPlant(PlantKind.Cuttings);
-				plant.getUserInfo(input);
-				plants.add(plant);
+				plantInput = new CuttingsPlant(PlantKind.Cuttings);
+				plantInput.getUserInfo(input);
+				plants.add(plantInput);
 				break;
 			}
 			else if(kind == 3) {
-				plant = new Seed(PlantKind.Seed);
-				plant.getUserInfo(input);
-				plants.add(plant);
+				plantInput = new Seed(PlantKind.Seed);
+				plantInput.getUserInfo(input);
+				plants.add(plantInput);
 				break;
 			}
 			else {
@@ -70,8 +72,8 @@ public class PlantManager {
 		System.out.print("Plant ID: ");
 		int plantID = input.nextInt();
 		for (int i = 0; i<plants.size(); i++) {
-			Plant plant = plants.get(i);
-			if(plant.getId() == plantID) {
+			PlantInput plantInput = plants.get(i);
+			if(plantInput.getId() == plantID) {
 				int n = -1;
 				while(n != 5) {
 					System.out.println("===============\n" + "Edit Plant Info");
@@ -86,22 +88,22 @@ public class PlantManager {
 					if(n == 1) {//edit ID
 						System.out.print("Plant ID : ");
 						int id = input.nextInt();
-						plant.setId(id);
+						plantInput.setId(id);
 					}
 					else if(n == 2) {//edit Name
 						System.out.print("Plant Name : ");
 						String name = input.next();
-						plant.setName(name);
+						plantInput.setName(name);
 					}
 					else if(n == 3) {//edit type
 						System.out.print("Plant Type : ");
 						String type = input.next();
-						plant.setType(type);
+						plantInput.setType(type);
 					}
 					else if(n == 4) {//edit light
 						System.out.print("Plant Light : ");
 						String light = input.next();
-						plant.setLight(light);
+						plantInput.setLight(light);
 					}
 					else {
 						continue;

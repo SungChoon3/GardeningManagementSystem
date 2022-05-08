@@ -2,7 +2,7 @@ package plant;
 
 import java.util.Scanner;
 
-public class Seed extends Plant {
+public class Seed extends Plant implements PlantInput {
 	protected String seedingMethod;	
 	public Seed(PlantKind kind) {
 		super(kind);

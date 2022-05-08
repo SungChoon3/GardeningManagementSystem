@@ -2,7 +2,7 @@ package plant;
 
 import java.util.Scanner;
 
-public class CuttingsPlant extends Plant {
+public class CuttingsPlant extends Plant implements PlantInput {
 	public CuttingsPlant(PlantKind kind) {
 		super(kind);
 	}
@@ -34,4 +34,23 @@ public class CuttingsPlant extends Plant {
 			}
 		}
 	}
+	public void printInfo() {
+		String pkind = "none";
+		switch(this.kind) {
+		case Seedling : 
+			pkind = "Seedling";
+			break;
+		case Cuttings : 
+			pkind = "Cuttings";
+			break;
+		case Seed : 
+			pkind = "Seed";
+			break;
+		default : 
+			
+		}
+		System.out.println("kind: " + pkind + " name: "+ name + " id: " + id 
+				+ " type: " + type + " light: " + light);
+	}
+
 }
