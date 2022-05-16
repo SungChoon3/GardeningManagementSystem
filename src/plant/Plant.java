@@ -2,7 +2,7 @@ package plant;
 
 import java.util.Scanner;
 
-public abstract class Plant {	//abstract - Plant의 객체를 더이상 생성하지 않음
+public abstract class Plant implements PlantInput {	//abstract - Plant의 객체를 더이상 생성하지 않음
 	//fields - 보안을 위해 protected로 변경
 	protected PlantKind kind = PlantKind.Seedling; //디폴트는 묘목
 	protected String name;
@@ -58,4 +58,41 @@ public abstract class Plant {	//abstract - Plant의 객체를 더이상 생성하지 않음
 		this.light = light;
 	}
 	public abstract void printInfo();
+	
+	public void setPlantID(Scanner input) {
+		System.out.print("Plant ID : ");
+		int id = input.nextInt();
+		this.setId(id);
+	}
+	public void setPlantName(Scanner input) {
+		System.out.print("Plant Name : ");
+		String name = input.next();
+		this.setName(name);
+	}
+	public void setPlantType(Scanner input) {
+		System.out.print("Plant Type : ");
+		String type = input.next();
+		this.setType(type);
+	}
+	public void setPlantLight(Scanner input) {
+		System.out.print("Plant Light : ");
+		String light = input.next();
+		this.setLight(light);
+	}
+	public String getKindString() {
+		String pkind = "none";
+		switch(this.kind) {
+		case Seedling : 
+			pkind = "Seedling";
+			break;
+		case Cuttings : 
+			pkind = "Cuttings";
+			break;
+		case Seed : 
+			pkind = "Seed";
+			break;
+		default : 
+		}
+		return pkind;
+	}
 }

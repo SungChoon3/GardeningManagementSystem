@@ -10,4 +10,8 @@ public interface PlantInput {
 	public void setType(String type);
 	public void setLight(String light);
 	public void printInfo();
+	public void setPlantID(Scanner input);
+	public void setPlantName(Scanner input);
+	public void setPlantType(Scanner input);
+	public void setPlantLight(Scanner input);
 }
