@@ -1,17 +1,22 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import plant.CuttingsPlant;
-import plant.Plant;
 import plant.PlantInput;
 import plant.PlantKind;
 import plant.Seed;
 import plant.Seedling;
 
-public class PlantManager {
+public class PlantManager implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2875167375512744775L;
+	
 	ArrayList<PlantInput> plants = new ArrayList<PlantInput>();
-	Scanner input;
+	transient Scanner input; //저장하고 싶지 않은 스캐너
 	PlantManager(Scanner input){//생성자
 		this.input = input;
 	}

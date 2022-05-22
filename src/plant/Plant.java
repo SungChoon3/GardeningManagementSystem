@@ -1,8 +1,13 @@
 package plant;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public abstract class Plant implements PlantInput {	//abstract - Plant의 객체를 더이상 생성하지 않음
+public abstract class Plant implements PlantInput, Serializable {	//abstract - Plant의 객체를 더이상 생성하지 않음
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7615534005171186016L;
 	//fields - 보안을 위해 protected로 변경
 	protected PlantKind kind = PlantKind.Seedling; //디폴트는 묘목
 	protected String name;
