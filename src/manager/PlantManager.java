@@ -1,9 +1,11 @@
+package manager;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import plant.CuttingsPlant;
+import plant.Plant;
 import plant.PlantInput;
 import plant.PlantKind;
 import plant.Seed;
@@ -128,7 +130,12 @@ public class PlantManager implements Serializable {
 			plants.get(i).printInfo();
 		}
 	}
-
+	public int size() {
+		return plants.size();
+	}
+	public PlantInput get(int index) {
+		return (Plant) plants.get(index);
+	}
 	public void showEditMenu() {
 		System.out.println("===============\n" + "Edit Plant Info");
 		System.out.println("1. Edit Plant ID");

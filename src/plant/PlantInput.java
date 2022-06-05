@@ -6,8 +6,11 @@ public interface PlantInput {
 	public void getUserInfo(Scanner input) ;
 	public int getId();
 	public void setId(int id);
+	public String getName();
 	public void setName(String name);
+	public String getType();
 	public void setType(String type);
+	public String getLight();
 	public void setLight(String light);
 	public void printInfo();
 	public void setPlantID(Scanner input);
