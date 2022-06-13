@@ -2,6 +2,8 @@ package gui;
 import javax.swing.*;
 
 import listener.ButtonAddListener;
+import listener.ButtonDeleteListener;
+import listener.ButtonEditListener;
 import listener.ButtonViewListener;
 
 import java.awt.*;
@@ -24,6 +26,8 @@ public class MenuSelection extends JPanel{
 		JButton button5 = new JButton("Exit Program");
 		
 		button1.addActionListener(new ButtonAddListener(frame));
+		button2.addActionListener(new ButtonDeleteListener(frame));
+		button3.addActionListener(new ButtonEditListener(frame));
 		button4.addActionListener(new ButtonViewListener(frame));
 		
 		panel1.add(label);

@@ -9,6 +9,8 @@ public class WindowFrame extends JFrame {
 	PlantManager plantmanager;
 	MenuSelection menuselection;
 	PlantAdder plantadder;
+	PlantDeleter plantdeleter;
+	PlantEditer plantediter;
 	PlantViewer plantviewer;
 	
 	public WindowFrame(PlantManager plantmanager) {
@@ -18,7 +20,9 @@ public class WindowFrame extends JFrame {
 		
 		this.plantmanager = plantmanager;
 		this.menuselection = new MenuSelection(this);
-		this.plantadder = new PlantAdder(this);
+		this.plantadder = new PlantAdder(this, this.plantmanager);
+		this.plantdeleter = new PlantDeleter(this, this.plantmanager);
+		this.plantediter = new PlantEditer(this, this.plantmanager);
 		this.plantviewer = new PlantViewer(this, this.plantmanager);
 		
 		this.add(menuselection);
@@ -42,6 +46,18 @@ public class WindowFrame extends JFrame {
 	}
 	public void setPlantadder(PlantAdder plantadder) {
 		this.plantadder = plantadder;
+	}
+	public PlantDeleter getPlantdeleter() {
+		return plantdeleter;
+	}
+	public void setPlantdeleter(PlantDeleter plantdeleter) {
+		this.plantdeleter = plantdeleter;
+	}
+	public PlantEditer getPlantediter() {
+		return plantediter;
+	}
+	public void setPlantediter(PlantEditer plantediter) {
+		this.plantediter = plantediter;
 	}
 	public PlantViewer getPlantviewer() {
 		return plantviewer;

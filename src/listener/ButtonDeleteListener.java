@@ -7,24 +7,26 @@ import java.io.ObjectInputStream;
 
 import javax.swing.*;
 
+import gui.PlantAdder;
+import gui.PlantDeleter;
 import gui.PlantViewer;
 import gui.WindowFrame;
 import manager.PlantManager;
 
-public class ButtonViewListener implements ActionListener {
+public class ButtonDeleteListener implements ActionListener {
 	WindowFrame frame;
 
-	public ButtonViewListener(WindowFrame frame) {
+	public ButtonDeleteListener(WindowFrame frame) {
 		this.frame = frame;
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		PlantViewer plantViewer = frame.getPlantviewer();
+		PlantDeleter plantDeleter = frame.getPlantdeleter();
 		PlantManager plantmanager = getObject("plantmanager.ser");
-		plantViewer.setPlantmanager(plantmanager);
+		plantDeleter.setPlantmanager(plantmanager);
 		
 		frame.getContentPane().removeAll();
-		frame.getContentPane().add(plantViewer);
+		frame.getContentPane().add(plantDeleter);
 		frame.revalidate();
 		frame.repaint();
 	}
@@ -49,10 +51,4 @@ public class ButtonViewListener implements ActionListener {
 		}
 		return plantmanager;
 	}
-//	public void actionPerformed(ActionEvent e) {
-//		JButton b = (JButton) e.getSource();
-//		PlantViewer viewer = frame.getPlantviewer();
-//		frame.setupPanel(viewer);
-//	}
-
 }

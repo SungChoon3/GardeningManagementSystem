@@ -1,11 +1,17 @@
 package gui;
 import javax.swing.*;
 
+import listener.PlantAdderCancelListener;
+import listener.PlantAdderListener;
+import manager.PlantManager;
+
 public class PlantAdder extends JPanel{
 	WindowFrame frame;
+	PlantManager plantmanager;
 	
-	public PlantAdder(WindowFrame frame) {
+	public PlantAdder(WindowFrame frame, PlantManager plantmanager) {
 		this.frame = frame;
+		this.plantmanager = plantmanager;
 		
 		JPanel panel = new JPanel();
 		panel.setLayout(new SpringLayout());
@@ -31,10 +37,16 @@ public class PlantAdder extends JPanel{
 		JLabel labelLight = new JLabel("Light : ", JLabel.TRAILING);
 		JTextField fieldLight = new JTextField(10);
 		labelID.setLabelFor(fieldLight);
+		
+		JButton saveButton = new JButton("save");
+		saveButton.addActionListener(new PlantAdderListener(fieldID, fieldName, fieldType, fieldLight, plantmanager));
+		JButton cancelButton = new JButton("cancel");
+		cancelButton.addActionListener(new PlantAdderCancelListener(frame));
+		
 		panel.add(labelLight);
 		panel.add(fieldLight);
-		panel.add(new JButton("save"));
-		panel.add(new JButton("cancel"));
+		panel.add(saveButton);
+		panel.add(cancelButton);
 
 		SpringUtilities.makeCompactGrid(panel,  5,  2,  6, 6,  6,  6);
 

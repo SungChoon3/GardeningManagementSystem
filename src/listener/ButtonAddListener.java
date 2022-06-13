@@ -13,9 +13,15 @@ public class ButtonAddListener implements ActionListener {
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		JButton b = (JButton) e.getSource();
-		PlantAdder adder = frame.getPlantadder();
-		frame.setupPanel(adder);
+		frame.getContentPane().removeAll();
+		frame.getContentPane().add(frame.getPlantadder());
+		frame.revalidate();
+		frame.repaint();
 	}
+//	public void actionPerformed(ActionEvent e) {
+//		JButton b = (JButton) e.getSource();
+//		PlantAdder adder = frame.getPlantadder();
+//		frame.setupPanel(adder);
+//	}
 
 }

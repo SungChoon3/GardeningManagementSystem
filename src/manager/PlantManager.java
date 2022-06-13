@@ -22,6 +22,14 @@ public class PlantManager implements Serializable {
 	PlantManager(Scanner input){//생성자
 		this.input = input;
 	}
+	public void addPlant(String id, String name, String type, String light) {
+		PlantInput plantInput = new Seedling(PlantKind.Seedling);
+		plantInput.getUserInfo(input);
+		plants.add(plantInput);
+	}
+	public void addPlant(PlantInput plantInput) {
+		plants.add(plantInput);
+	}
 	public void addPlant() {//1번 메뉴 함수
 		System.out.println("#Add Plant#"); //식물 추가 메뉴
 		int kind = 0;
@@ -91,6 +99,9 @@ public class PlantManager implements Serializable {
 			System.out.println("the plant has not been registered");
 			return -1;
 		}
+	}
+	public void editPlant(PlantInput plantInput) {
+		plants.add(plantInput);
 	}
 	public void editPlant() {
 		System.out.println("#Edit Plant#"); //식물 변경 메뉴
