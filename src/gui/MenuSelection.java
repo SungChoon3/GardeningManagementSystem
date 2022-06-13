@@ -5,7 +5,7 @@ import listener.ButtonAddListener;
 import listener.ButtonDeleteListener;
 import listener.ButtonEditListener;
 import listener.ButtonViewListener;
-
+import java.awt.event.*;
 import java.awt.*;
 
 public class MenuSelection extends JPanel{
@@ -29,6 +29,11 @@ public class MenuSelection extends JPanel{
 		button2.addActionListener(new ButtonDeleteListener(frame));
 		button3.addActionListener(new ButtonEditListener(frame));
 		button4.addActionListener(new ButtonViewListener(frame));
+		button5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
 		
 		panel1.add(label);
 		panel2.add(button1);

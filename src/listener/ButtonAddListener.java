@@ -18,10 +18,4 @@ public class ButtonAddListener implements ActionListener {
 		frame.revalidate();
 		frame.repaint();
 	}
-//	public void actionPerformed(ActionEvent e) {
-//		JButton b = (JButton) e.getSource();
-//		PlantAdder adder = frame.getPlantadder();
-//		frame.setupPanel(adder);
-//	}
-
 }

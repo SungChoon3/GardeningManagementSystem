@@ -6,9 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-
 import javax.swing.JTextField;
-
 import manager.PlantManager;
 import plant.PlantInput;
 import plant.PlantKind;
@@ -33,14 +31,8 @@ public class PlantAdderListener implements ActionListener {
 		this.fieldLight = fieldLight;
 		this.plantmanager = plantmanager;
 	}
-
 	@Override
-	public void actionPerformed(ActionEvent e) {
-//		System.out.println(fieldID.getText());
-//		System.out.println(fieldName.getText());
-//		System.out.println(fieldType.getText());
-//		System.out.println(fieldLight.getText());
-//		
+	public void actionPerformed(ActionEvent e) {	
 		PlantInput plant = new Seedling(PlantKind.Seedling);
 		plant.setId(Integer.parseInt(fieldID.getText()));
 		plant.setName(fieldName.getText());
@@ -60,10 +52,8 @@ public class PlantAdderListener implements ActionListener {
 			out.close();
 			file.close();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

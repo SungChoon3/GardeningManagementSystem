@@ -4,10 +4,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-
-import javax.swing.*;
-
-import gui.PlantAdder;
 import gui.PlantDeleter;
 import gui.PlantViewer;
 import gui.WindowFrame;
@@ -43,10 +39,8 @@ public class ButtonDeleteListener implements ActionListener {
 		} catch (FileNotFoundException e) {
 			return plantmanager;
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return plantmanager;
